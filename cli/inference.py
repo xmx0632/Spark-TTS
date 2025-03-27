@@ -88,7 +88,18 @@ def run_tts(args):
 
     # Generate unique filename using timestamp
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-    save_path = os.path.join(args.save_dir, f"{timestamp}.wav")
+
+    # {args.gender}-{args.speed}-{args.pitch} if args.xxx is not None else ""
+    prefix = "-".join(
+        [
+            args.gender,
+            args.speed,
+            args.pitch,
+        ]
+    )
+    prefix = prefix if len(prefix) > 0 else "default"
+    prefix = f"{prefix}-" if len(prefix) > 0 else ""
+    save_path = os.path.join(args.save_dir, f"{prefix}{timestamp}.wav")
 
     logging.info("Starting inference...")
 
