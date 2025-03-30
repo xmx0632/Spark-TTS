@@ -29,7 +29,7 @@ model_dir="pretrained_models/Spark-TTS-0.5B"
 text="自己选择的路，再荒谬也要走完！"
 # text="身临其境，换新体验。塑造开源语音合成新范式，让智能语音更自然。"
 prompt_text="某～姓关名羽，字云长，河东解良人"
-prompt_speech_path="myvideo/prompt_audio/prompt_guanyu.mp3"
+prompt_speech_path="myvideo/prompt_audio/mp3/prompt_guanyu.mp3"
 
 # Change directory to the root directory
 cd "$root_dir" || exit
