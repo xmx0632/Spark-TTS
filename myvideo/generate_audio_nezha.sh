@@ -26,10 +26,10 @@ root_dir=$(dirname "$script_dir")
 device=0
 save_dir='myvideo/results'
 model_dir="pretrained_models/Spark-TTS-0.5B"
-text="身临其境，换新体验。塑造开源语音合成新范式，让智能语音更自然。"
+text="自己选择的路，再荒谬也要走完！"
 # text="身临其境，换新体验。塑造开源语音合成新范式，让智能语音更自然。"
-prompt_text="俺也一样"
-prompt_speech_path="myvideo/prompt_audio/mp3/prompt_zhangfei.mp3"
+prompt_text="他们说我注定不配拥有什么。注定要背负那些沉重的枷锁。活在他们的期望里。每天都的做那些他们安排好的事。像个没有自由的傀儡，根本没法活成自己。这个世界，这些人，真的一点也不值得我去在乎。"
+prompt_speech_path="myvideo/prompt_audio/wav/nezha.wav"
 
 # Change directory to the root directory
 cd "$root_dir" || exit
