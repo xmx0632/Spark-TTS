@@ -89,17 +89,20 @@ def run_tts(args):
     # Generate unique filename using timestamp
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
 
-    # {args.gender}-{args.speed}-{args.pitch} if args.xxx is not None else ""
-    prefix = "-".join(
-        [
-            args.gender,
-            args.speed,
-            args.pitch,
-        ]
-    )
-    prefix = prefix if len(prefix) > 0 else "default"
-    prefix = f"{prefix}-" if len(prefix) > 0 else ""
-    save_path = os.path.join(args.save_dir, f"{prefix}{timestamp}.wav")
+    # Create a list of non-None attributes for the filename prefix
+    prefix_parts = []
+    if args.gender is not None:
+        prefix_parts.append(args.gender)
+    if args.speed is not None:
+        prefix_parts.append(args.speed)
+    if args.pitch is not None:
+        prefix_parts.append(args.pitch)
+    
+    # Join the parts with hyphens if there are any
+    prefix = "-".join(prefix_parts)
+    prefix = prefix if prefix else "default"
+    filename = f"{prefix}-{timestamp}.wav" if prefix else f"{timestamp}.wav"
+    save_path = os.path.join(args.save_dir, filename)
 
     logging.info("Starting inference...")
 
